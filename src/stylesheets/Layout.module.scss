@@ -1,0 +1,18 @@
+@import './_variables.scss';
+
+.column {
+  height: 100%;
+  max-width: 1/3 * 100vw;
+  flex: 1;
+
+  .column_title {
+    width: 100%;
+    padding: $spacing;
+  }
+
+  .content {
+    border-top: 1px solid $color_gray;
+    margin: 0 $spacing;
+    padding: $spacing 0;
+  }
+}

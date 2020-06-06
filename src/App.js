@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function App() {
+import './stylesheets/_reset.scss';
+import Dashboard from './views/Dashboard.js';
+
+import { initFetch } from './helpers/initFetch.js';
+
+const App = ({ dispatch }) => {
+  useEffect(() => {
+    initFetch(dispatch);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route path="/" component={Dashboard} />
+      </Switch>
     </div>
   );
-}
+};
 
-export default App;
+export default connect()(App);
